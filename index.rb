@@ -116,6 +116,45 @@ puts "\r"
 
 #  if (weather_data.eof?)
 
-weather_data = File.read("weather.dat")
+weather_data = File.readlines("weather.dat")
 
-puts weather_data
+table = []
+
+# Process (read) each line in turn
+for line in weather_data
+	line.chop
+	parts = line.split(" ")
+	table.push parts
+end
+
+# Show an example - row 25, column 7
+puts table[2][1]
+
+# weather_data = File.readlines("weather.dat").each_with_index do |line, index|
+# 	day = line.chomp.split("\n")
+# 	puts day
+# end
+
+# puts day[2]
+
+# fields = []
+
+# puts weather_data
+
+# weather_data.each_line { |line|
+# 	fields = line.split(" ")
+# }
+
+# puts fields
+
+# some_string = weather_data.split(/\n/)
+
+# cleaned = some_string.split(" ")
+
+# puts some_string
+
+# puts some_string[2]
+
+# puts cleaned[2]
+
+
