@@ -114,47 +114,32 @@
 
 puts "\r"
 
-#  if (weather_data.eof?)
-
 weather_data = File.readlines("weather.dat")
 
 table = []
 
-# Process (read) each line in turn
 for line in weather_data
-	line.chop
-	parts = line.split(" ")
-	table.push parts
+	some_string = line.split(" ")
+	table.push some_string
 end
 
-# Show an example - row 25, column 7
-puts table[2][1]
-
-# weather_data = File.readlines("weather.dat").each_with_index do |line, index|
-# 	day = line.chomp.split("\n")
-# 	puts day
-# end
-
-# puts day[2]
-
-# fields = []
-
-# puts weather_data
-
-# weather_data.each_line { |line|
-# 	fields = line.split(" ")
-# }
-
-# puts fields
-
-# some_string = weather_data.split(/\n/)
-
-# cleaned = some_string.split(" ")
-
-# puts some_string
-
-# puts some_string[2]
-
-# puts cleaned[2]
+max_diff = 100
+max_diff_day = 100
 
 
+puts "\r"
+
+table[2..34].each do |row|
+	temp_diff = row[1].to_i - row[2].to_i
+
+	# puts "Day: #{row[0]}"
+	# puts "#{temp_diff}° Difference"
+	# puts "\r"
+
+	if temp_diff < max_diff
+		max_diff = temp_diff
+		max_diff_day = row[0]
+	end
+end
+
+puts "June's smallest temperature spread was #{max_diff}° on June #{max_diff_day}.\n\n"
