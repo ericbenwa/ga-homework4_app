@@ -17,6 +17,8 @@ elsif math_pref == "M"
 		total = number * minimum
 		minimum += 1
 	end
+else
+	puts "That doesn't make any sense."
 end
 
 puts "\nYour number is #{total}.\n\n"
