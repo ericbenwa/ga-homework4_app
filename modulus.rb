@@ -1,15 +1,20 @@
 puts "\nPrinting out modulus numbers.\n\n"
 
-i = 1
+(1..75).each do |num|
+	message = ""
 
-while i <= 75 do
-	if i % 3 == 0 && i % 5 == 0
-		puts "BEWD Rocks #{i}"
-	elsif i % 3 == 0
-		puts "BEWD #{i}"
-	elsif i % 5 == 0
-		puts "Rocks #{i}"
+	if num % 3 == 0
+		message << "Bewd"
 	end
 
-	i += 1
+	if num % 5 == 0
+		message << "Rocks"
+	end
+
+	if message == ""
+		message << num.to_s
+	end
+
+	puts message
+
 end
